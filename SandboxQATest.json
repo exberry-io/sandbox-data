@@ -219,12 +219,25 @@
                   "sid":103
                }
             }
+         },
+         {
+            "group":"Private Data API",
+            "methodName":"trades",
+            "payload":{
+               "sample":{
+                  "q":"v1/exchange.market/trades",
+                  "sid":1,
+                  "d":{
+                     
+                  }
+               }
+            }
          }
       ],
-      "order":237
+      "order":242
    },
    "[custom]-new-env-10":{
-      "url":"wss://exchange-gateway-master.exchange.rnd.exberry.io",
+      "url":"wss://exchange-gateway-master.rnd.exberry-rnd.io",
       "provider":"websocket",
       "methods":[
          {
@@ -460,6 +473,19 @@
                   }
                }
             }
+         },
+         {
+            "group":"Private Data API",
+            "methodName":"trades",
+            "payload":{
+               "sample":{
+                  "q":"v1/exchange.market/trades",
+                  "sid":1,
+                  "d":{
+                     
+                  }
+               }
+            }
          }
       ],
       "order":121
@@ -686,10 +712,10 @@
             }
          }
       ],
-      "order":331
+      "order":337
    },
    "[custom]-new-env-13":{
-      "url":"wss://api-gateway-master.site.rnd.exberry.io",
+      "url":"wss://api-gateway-master.rnd.exberry-rnd.io",
       "provider":"websocket",
       "methods":[
          {
@@ -972,7 +998,7 @@
             }
          }
       ],
-      "order":127
+      "order":130
    },
    "[custom]-new-env-14":{
       "url":"wss://api-gateway-staging.site.staging.exberry-uat.io",
@@ -1248,12 +1274,12 @@
             }
          }
       ],
-      "order":241
+      "order":247
    },
    "[custom]-new-env-17":{
-      "url":"wss://oms-trading-gateway-master.exchange.rnd.exberry.io",
+      "url":"wss://oms-trading-gateway-master.rnd.exberry-rnd.io",
       "provider":"websocket",
-      "order":145,
+      "order":149,
       "methods":[
          {
             "group":"Authentication API",
@@ -1331,7 +1357,7 @@
    "[custom]-new-env-18":{
       "url":"wss://nebula-sandbox-shared.staging.exberry-uat.io",
       "provider":"websocket",
-      "order":256,
+      "order":262,
       "methods":[
          {
             "group":"Authentication API",
@@ -1680,7 +1706,7 @@
             }
          }
       ],
-      "order":338
+      "order":344
    },
    "[custom]-new-env-22":{
       "url":"wss://exchange-gateway-exchange.production.exberry.io",
@@ -1904,6 +1930,6 @@
             }
          }
       ],
-      "order":334
+      "order":340
    }
 }
