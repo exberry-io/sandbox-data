@@ -1,14 +1,14 @@
 {
    "[custom]-new-env-9":{
-      "url":"wss://sandbox-shared.staging.exberry-uat.io",
+      "url":"wss://sbe-gateway-bridge-master.rnd.exberry-rnd.io",
       "provider":"websocket",
       "methods":[
          {
             "group":"Authentication API",
-            "methodName":"createSession - Broker",
+            "methodName":"createSession - MP",
             "payload":{
                "sample":{
-                  "q":"exchange.market/createSession",
+                  "q":"v1/sbe.gateway/logon",
                   "sid":1,
                   "d":{
                      "apiKey":"",
@@ -22,7 +22,7 @@
                      "id":"q",
                      "label":"q",
                      "valueType":"text",
-                     "initialValue":"exchange.market/createSession",
+                     "initialValue":"v1/sbe.gateway/logon",
                      "hidden":true,
                      "required":true
                   },
@@ -39,7 +39,7 @@
                      "id":"apiKey",
                      "label":"apiKey",
                      "valueType":"text",
-                     "initialValue":"afad761f-dc20-403b-9011-b34e9bd45807",
+                     "initialValue":"00aed054-2f77-4b3e-847d-3add05cd285e",
                      "required":true
                   },
                   "secret":{
@@ -47,7 +47,7 @@
                      "id":"secret",
                      "label":"secret",
                      "valueType":"text",
-                     "initialValue":"05248a767482fc0ae74f5c39e742e8ae2ae98766b784a7698ebd174cfb3db280",
+                     "initialValue":"28f90089f870a0756f4938aca214971d7569a582f46e628da350831f01b9abb4",
                      "required":true
                   },
                   "timestamp":{
@@ -83,31 +83,25 @@
             "methodName":"placeOrder",
             "payload":{
                "sample":{
+                  "q":"v1/sbe.gateway/placeOrder",
+                  "sid":2,
                   "d":{
+                     "instrumentId":2982,
+                     "mpOrderId":1,
+                     "price":100.123,
+                     "quantity":70.42,
                      "orderType":"Limit",
-                     "side":"Buy",
-                     "quantity":1.3,
-                     "price":100.33,
-                     "instrument":"AMZ",
-                     "mpOrderId":1001,
+                     "side":"Sell",
                      "timeInForce":"GTC",
-                     "userId":"UATUserTest10",
-                     "accountType":"House",
+                     "accountType":"Client",
                      "parties":[
                         {
-                           "id":"veryCoolStringId",
+                           "id":"id-0",
                            "source":"D",
-                           "role":12
-                        },
-                        {
-                           "id":"user123",
-                           "source":"D",
-                           "role":13
+                           "role":0
                         }
                      ]
-                  },
-                  "q":"v1/exchange.market/placeOrder",
-                  "sid":1
+                  }
                },
                "structure":{
                   "d":[
@@ -131,24 +125,11 @@
             "methodName":"cancelOrder",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.market/cancelOrder",
+                  "q":"v1/sbe.gateway/cancelOrder",
                   "sid":1,
                   "d":{
-                     "orderId":"",
-                     "instrument":"AMZ"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"massCancel",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/massCancel",
-                  "sid":1,
-                  "d":{
-                     "instrument":"AMZ"
+                     "instrumentId":2982,
+                     "orderId":1
                   }
                }
             }
@@ -158,8 +139,8 @@
             "methodName":"orderBookDepth",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.market/orderBookDepth",
-                  "sid":10,
+                  "q":"v1/sbe.gateway/orderBookDepth",
+                  "sid":1,
                   "d":{
                      "trackingNumber":0
                   }
@@ -171,26 +152,11 @@
             "methodName":"orderBookState",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.market/orderBookState",
-                  "sid":100,
+                  "q":"v1/sbe.gateway/orderBookState",
+                  "sid":1,
                   "d":{
                      
                   }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"modifyOrder",
-            "payload":{
-               "sample":{
-                  "d":{
-                     "orderId":1,
-                     "instrument":"AMZ",
-                     "quantity":1
-                  },
-                  "q":"v1/exchange.market/modifyOrder",
-                  "sid":1
                }
             }
          },
@@ -199,11 +165,11 @@
             "methodName":"massOrderStatus",
             "payload":{
                "sample":{
+                  "q":"v1/sbe.gateway/massOrderStatus",
+                  "sid":1,
                   "d":{
                      
-                  },
-                  "q":"v1/exchange.market/massOrderStatus",
-                  "sid":102
+                  }
                }
             }
          },
@@ -212,29 +178,16 @@
             "methodName":"executionReports",
             "payload":{
                "sample":{
+                  "q":"v1/sbe.gateway/executionReports",
+                  "sid":4,
                   "d":{
-                     
-                  },
-                  "q":"v1/exchange.market/executionReports",
-                  "sid":103
-               }
-            }
-         },
-         {
-            "group":"Private Data API",
-            "methodName":"trades",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/trades",
-                  "sid":1,
-                  "d":{
-                     
+                     "trackingNumber":0
                   }
                }
             }
          }
       ],
-      "order":242
+      "order":278
    },
    "[custom]-new-env-10":{
       "url":"wss://exchange-gateway-master.rnd.exberry-rnd.io",
@@ -242,7 +195,7 @@
       "methods":[
          {
             "group":"Authentication API",
-            "methodName":"createSession - Broker",
+            "methodName":"createSession - MP",
             "payload":{
                "sample":{
                   "q":"exchange.market/createSession",
@@ -328,7 +281,6 @@
                      "instrument":"AMZ",
                      "mpOrderId":1001,
                      "timeInForce":"GTC",
-                     "userId":"UATUserTest10",
                      "accountType":"House",
                      "parties":[
                         {
@@ -382,7 +334,7 @@
             "methodName":"orderBookDepth",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.market/orderBookDepth",
+                  "q":"v2/exchange.market/orderBookDepth",
                   "sid":10,
                   "d":{
                      "trackingNumber":0
@@ -395,7 +347,7 @@
             "methodName":"orderBookState",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.market/orderBookState",
+                  "q":"v2/exchange.market/orderBookState",
                   "sid":100,
                   "d":{
                      
@@ -411,7 +363,19 @@
                   "q":"v1/exchange.market/massCancel",
                   "sid":1,
                   "d":{
-                     "instrument":"AMZ"
+                     "instrument":"AMZ",
+                     "targetParties":[
+                        {
+                           "id":"veryCoolStringId",
+                           "source":"D",
+                           "role":12
+                        },
+                        {
+                           "id":"user123",
+                           "source":"D",
+                           "role":13
+                        }
+                     ]
                   }
                }
             }
@@ -480,82 +444,22 @@
             "payload":{
                "sample":{
                   "q":"v1/exchange.market/trades",
-                  "sid":1,
+                  "sid":14,
                   "d":{
-                     
+                     "trackingNumber":0
                   }
                }
             }
-         }
-      ],
-      "order":121
-   },
-   "[custom]-new-env-11":{
-      "url":"wss://exchange-gateway-endx.production.exberry.io",
-      "provider":"websocket",
-      "methods":[
+         },
          {
             "group":"Authentication API",
-            "methodName":"createSession - Broker",
+            "methodName":"createSession - Trader",
             "payload":{
                "sample":{
                   "q":"exchange.market/createSession",
-                  "sid":1,
+                  "sid":15,
                   "d":{
-                     "apiKey":"",
-                     "timestamp":"",
-                     "signature":""
-                  }
-               },
-               "metadata":{
-                  "q":{
-                     "type":"input",
-                     "id":"q",
-                     "label":"q",
-                     "valueType":"text",
-                     "initialValue":"exchange.market/createSession",
-                     "hidden":true,
-                     "required":true
-                  },
-                  "sid":{
-                     "type":"input",
-                     "id":"sid",
-                     "label":"sid",
-                     "valueType":"number",
-                     "initialValue":1,
-                     "required":true
-                  },
-                  "apiKey":{
-                     "type":"input",
-                     "id":"apiKey",
-                     "label":"apiKey",
-                     "valueType":"text",
-                     "initialValue":"2a14efbf-d8b5-4a5b-9b52-4212fc83e36b",
-                     "required":true
-                  },
-                  "secret":{
-                     "type":"input",
-                     "id":"secret",
-                     "label":"secret",
-                     "valueType":"text",
-                     "initialValue":"9cb9bcd2f4314d0e597800b859ed72ca512c1459587ac9759c1b9ded6737f0c2",
-                     "required":true
-                  },
-                  "timestamp":{
-                     "type":"input",
-                     "id":"timestamp",
-                     "label":"timestamp",
-                     "valueType":"number",
-                     "initialValue":"__TIMESTAMP__",
-                     "required":true
-                  },
-                  "signature":{
-                     "type":"input",
-                     "id":"signature",
-                     "label":"signature",
-                     "valueType":"text",
-                     "hidden":true,
-                     "initialValue":"__SIGNATURE__"
+                     "token":"123"
                   }
                },
                "structure":{
@@ -570,19 +474,40 @@
             }
          },
          {
-            "group":"Trading API",
-            "methodName":"placeOrder",
+            "group":"RFQ",
+            "methodName":"submitRFQ",
             "payload":{
                "sample":{
+                  "q":"v1/exchange.market/submitRFQ",
+                  "sid":1,
                   "d":{
-                     "orderType":"Limit",
+                     "mpRfqId":123,
+                     "instrument":"ABC",
                      "side":"Buy",
-                     "quantity":1.3,
-                     "price":100.33,
-                     "instrument":"AMZ",
-                     "mpOrderId":1001,
-                     "timeInForce":"GTC",
-                     "userId":"UATUserTest10",
+                     "quantity":2,
+                     "expireTime":1689758604
+                  }
+               }
+            }
+         },
+         {
+            "group":"RFQ",
+            "methodName":"submitQuote",
+            "payload":{
+               "sample":{
+                  "q":"v1/exchange.market/submitQuote",
+                  "sid":1,
+                  "d":{
+                     "mpQuoteId":123,
+                     "rfqId":456,
+                     "instrument":"ABC",
+                     "quoteDetails":[
+                        {
+                           "side":"Buy",
+                           "price":13.2,
+                           "quantity":100
+                        }
+                     ],
                      "accountType":"House",
                      "parties":[
                         {
@@ -596,123 +521,57 @@
                            "role":13
                         }
                      ]
-                  },
-                  "q":"v1/exchange.market/placeOrder",
-                  "sid":1
-               },
-               "structure":{
-                  "d":[
-                     "orderType",
-                     "instrument",
-                     "side",
-                     "quantity",
-                     "price",
-                     "timeInForce",
-                     "expiryDate",
-                     "mpOrderId",
-                     "userId"
-                  ],
-                  "q":"q",
-                  "sid":"sid"
+                  }
                }
             }
          },
          {
-            "group":"Trading API",
-            "methodName":"cancelOrder",
+            "group":"RFQ",
+            "methodName":"cancelRFQ",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.market/cancelOrder",
+                  "q":"v1/exchange.market/cancelRFQ",
+                  "sid":15,
+                  "d":{
+                     "rfqId":123,
+                     "instrument":"ABC"
+                  }
+               }
+            }
+         },
+         {
+            "group":"RFQ",
+            "methodName":"cancelQuote",
+            "payload":{
+               "sample":{
+                  "q":"v1/exchange.market/cancelQuote",
+                  "sid":15,
+                  "d":{
+                     "quoteId":123,
+                     "instrument":"ABC"
+                  }
+               }
+            }
+         },
+         {
+            "group":"RFQ",
+            "methodName":"acceptQuote",
+            "payload":{
+               "sample":{
+                  "q":"v1/exchange.market/acceptQuote",
                   "sid":1,
                   "d":{
-                     "orderId":"",
-                     "instrument":"AMZ"
+                     "quoteId":123,
+                     "instrument":"ABC",
+                     "side":"Buy",
+                     "price":13.2,
+                     "quantity":100
                   }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"massCancel",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/massCancel",
-                  "sid":1,
-                  "d":{
-                     "instrument":"AMZ"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"orderBookDepth",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/orderBookDepth",
-                  "sid":10,
-                  "d":{
-                     "trackingNumber":0
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"orderBookState",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/orderBookState",
-                  "sid":100,
-                  "d":{
-                     
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"modifyOrder",
-            "payload":{
-               "sample":{
-                  "d":{
-                     "orderId":1,
-                     "instrument":"AMZ",
-                     "quantity":1
-                  },
-                  "q":"v1/exchange.market/modifyOrder",
-                  "sid":1
-               }
-            }
-         },
-         {
-            "group":"Private Data API",
-            "methodName":"executionReports",
-            "payload":{
-               "sample":{
-                  "d":{
-                     
-                  },
-                  "q":"v1/exchange.market/executionReports",
-                  "sid":103
-               }
-            }
-         },
-         {
-            "group":"Private Data API",
-            "methodName":"massOrderStatus",
-            "payload":{
-               "sample":{
-                  "d":{
-                     
-                  },
-                  "q":"v1/exchange.market/massOrderStatus",
-                  "sid":102
                }
             }
          }
       ],
-      "order":337
+      "order":121
    },
    "[custom]-new-env-13":{
       "url":"wss://api-gateway-master.rnd.exberry-rnd.io",
@@ -720,7 +579,7 @@
       "methods":[
          {
             "group":"Authentication API",
-            "methodName":"createSession - Broker",
+            "methodName":"createSession - MP",
             "payload":{
                "sample":{
                   "q":"exchange.market/createSession",
@@ -798,11 +657,38 @@
             "methodName":"trades",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.reporting/mp/trades",
+                  "q":"v2/exchange.reporting/mp/trades",
                   "sid":10,
                   "d":{
-                     "dateFrom":"2020-10-01T00:00:01",
-                     "dateTo":"2020-11-01T00:00:01"
+                     "eventId":925,
+                     "timestamp":"2021-12-15T21:02:45.189982",
+                     "orderId":643,
+                     "mpOrderId":1631632596945,
+                     "mpId":1958681073,
+                     "mpName":"Participant1",
+                     "instrumentId":14,
+                     "instruments":[
+                        "INS1"
+                     ],
+                     "side":"Buy",
+                     "price":100.5,
+                     "quantity":1.25,
+                     "matchId":413,
+                     "tradingMode":"CT",
+                     "actionTypes":[
+                        "TradeReport",
+                        "TradeCancel",
+                        "MatchedTrade"
+                     ],
+                     "tradeDate":"2022-11-15",
+                     "multiLegReportingTypes":[
+                        "SingleSecurity",
+                        "IndividualLeg",
+                        "MultiLegSecurity"
+                     ],
+                     "multiLegStrategyInstrument":"Symbol",
+                     "multiLegStrategyOrderId ":37,
+                     "multiLegStrategyMpOrderId ":36
                   }
                }
             }
@@ -815,16 +701,33 @@
                   "q":"v1/exchange.reporting/mp/orders",
                   "sid":10,
                   "d":{
-                     "dateFrom":"2020-10-01T00:00:01",
-                     "dateTo":"2020-11-01T00:00:01",
-                     "status":"Active"
+                     "orderId":681,
+                     "mpOrderId":10018,
+                     "instrumentId":14,
+                     "instrument":"INS1",
+                     "mpId":1958681073,
+                     "mpName":"Participant1",
+                     "status":"Active",
+                     "orderType":"Limit",
+                     "side":"Buy",
+                     "price":100.33,
+                     "quantity":1.3,
+                     "timeInForce":"GTC",
+                     "createdAt":"2021-12-15T20:11:09.974871",
+                     "filledPrice":0,
+                     "filledQuantity":0,
+                     "remainingOpenQuantity":1.3,
+                     "removedQuantity":0,
+                     "marketModel":"T",
+                     "lastUpdate":"2021-12-15T20:11:09.974871",
+                     "lastEventId":912
                   }
                }
             }
          },
          {
             "group":"Authentication API",
-            "methodName":"createSession - Trader",
+            "methodName":"createSession - Trader(OMS)",
             "payload":{
                "sample":{
                   "q":"v1/broker.oms/createSession",
@@ -850,10 +753,10 @@
             "payload":{
                "sample":{
                   "q":"v1/exchange.marketdata/partialOrderBook",
-                  "sid":10,
-                  "environments.exchangeNum":90,
+                  "sid":101,
+                  "token":"abc",
                   "d":{
-                     "symbol":"0Test",
+                     "symbol":"AMZ",
                      "levels":5,
                      "interval":1000,
                      "decimals":2
@@ -867,13 +770,14 @@
             "payload":{
                "sample":{
                   "q":"v1/exchange.marketdata/lightTickers",
-                  "sid":10,
-                  "environments.exchangeNum":30,
+                  "sid":102,
+                  "token":"abc",
                   "d":{
                      "symbols":[
-                        "0Test"
+                        "AMZ"
                      ],
-                     "interval":1000
+                     "interval":1000,
+                     "scope":"All"
                   }
                }
             }
@@ -937,9 +841,10 @@
             "payload":{
                "sample":{
                   "q":"v1/exchange.marketdata/liveTrades",
-                  "sid":13,
+                  "sid":103,
+                  "token":"abc",
                   "d":{
-                     "symbol":"0Test",
+                     "symbol":"AMZ",
                      "limit":500
                   }
                }
@@ -996,198 +901,45 @@
                   }
                }
             }
-         }
-      ],
-      "order":130
-   },
-   "[custom]-new-env-14":{
-      "url":"wss://api-gateway-staging.site.staging.exberry-uat.io",
-      "provider":"websocket",
-      "methods":[
+         },
          {
             "group":"Authentication API",
-            "methodName":"createSession - Broker",
+            "methodName":"createSession-Trader(Exchange)",
             "payload":{
                "sample":{
                   "q":"exchange.market/createSession",
-                  "sid":1,
+                  "sid":15,
                   "d":{
-                     "apiKey":"",
-                     "timestamp":"",
-                     "signature":""
-                  }
-               },
-               "metadata":{
-                  "q":{
-                     "type":"input",
-                     "id":"q",
-                     "label":"q",
-                     "valueType":"text",
-                     "initialValue":"exchange.market/createSession",
-                     "hidden":true,
-                     "required":true
-                  },
-                  "sid":{
-                     "type":"input",
-                     "id":"sid",
-                     "label":"sid",
-                     "valueType":"number",
-                     "initialValue":1,
-                     "required":true
-                  },
-                  "apiKey":{
-                     "type":"input",
-                     "id":"apiKey",
-                     "label":"apiKey",
-                     "valueType":"text",
-                     "initialValue":"867851de-6f27-4f26-8e06-c765ad214bd3",
-                     "required":true
-                  },
-                  "secret":{
-                     "type":"input",
-                     "id":"secret",
-                     "label":"secret",
-                     "valueType":"text",
-                     "initialValue":"ff118701982f032f150c0a0547471d0c3cfa478194f0e720720ff2fbba94fa84",
-                     "required":true
-                  },
-                  "timestamp":{
-                     "type":"input",
-                     "id":"timestamp",
-                     "label":"timestamp",
-                     "valueType":"number",
-                     "initialValue":"__TIMESTAMP__",
-                     "required":true
-                  },
-                  "signature":{
-                     "type":"input",
-                     "id":"signature",
-                     "label":"signature",
-                     "valueType":"text",
-                     "hidden":true,
-                     "initialValue":"__SIGNATURE__"
-                  }
-               },
-               "structure":{
-                  "q":"q",
-                  "sid":"sid",
-                  "d":[
-                     "apiKey",
-                     "timestamp",
-                     "signature"
-                  ]
-               }
-            }
-         },
-         {
-            "group":"Reporting API",
-            "methodName":"trades",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.reporting/mp/trades",
-                  "sid":10,
-                  "d":{
-                     "dateFrom":"2020-10-01T00:00:01",
-                     "dateTo":"2020-11-01T00:00:01"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Reporting API",
-            "methodName":"orders",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.reporting/mp/orders",
-                  "sid":10,
-                  "d":{
-                     "dateFrom":"2020-10-01T00:00:01",
-                     "dateTo":"2020-11-01T00:00:01",
-                     "status":"Active"
+                     "token":"123"
                   }
                }
             }
          },
          {
             "group":"Market Data API",
-            "methodName":"partialOrderBook",
+            "methodName":"getSettlementPrices",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.marketdata/partialOrderBook",
-                  "sid":10,
-                  "d":{
-                     "symbol":"0Test",
-                     "levels":5,
-                     "interval":1000,
-                     "decimals":2
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"lightTickers",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.marketdata/lightTickers",
-                  "sid":10,
-                  "environments.exchangeNum":200,
+                  "q":"v1/exchange.marketdata/getSettlementPrices",
+                  "token":"abc",
+                  "sid":104,
                   "d":{
                      "symbols":[
-                        "0Test"
-                     ],
-                     "interval":1000
+                        "AMZ1",
+                        "AMZ2"
+                     ]
                   }
                }
             }
          },
          {
-            "group":"Traders Reports API",
-            "methodName":"transactions",
+            "group":"Market Data API",
+            "methodName":"instrumentList",
             "payload":{
                "sample":{
-                  "q":"v1/broker.wallet/transactions",
-                  "sid":1,
-                  "d":{
-                     "accountId":"Account1",
-                     "assetId":"Asset1"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"tradesHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/tradesHistory",
-                  "sid":1,
-                  "d":{
-                     "instrument":"INS1"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"balances",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/balances",
-                  "sid":1,
-                  "d":{
-                     
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"ordersHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/ordersHistory",
-                  "sid":1,
+                  "q":"v1/exchange.marketdata/instrumentList",
+                  "token":"abc",
+                  "sid":10,
                   "d":{
                      
                   }
@@ -1196,77 +948,26 @@
          },
          {
             "group":"Market Data API",
-            "methodName":"liveTrades",
+            "methodName":"calendarList",
             "payload":{
                "sample":{
-                  "q":"v1/exchange.marketdata/liveTrades",
-                  "sid":13,
+                  "q":"v1/exchange.marketdata/calendarList",
+                  "token":"abc",
+                  "sid":11,
                   "d":{
-                     "symbol":"0Test",
-                     "limit":500
+                     
                   }
                }
             }
          },
          {
-            "group":"Authentication API",
-            "methodName":"createSession-Trader",
+            "group":"Market Data API",
+            "methodName":"tickSizeList",
             "payload":{
                "sample":{
-                  "q":"v1/broker.oms/createSession",
-                  "sid":1,
-                  "d":{
-                     "token":"abc"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportOrdersHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/exportOrdersHistory",
-                  "sid":1,
-                  "d":{
-                     "timeZone":"+01:00"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportTransactions",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.wallet/exportTransactions",
-                  "sid":1,
-                  "d":{
-                     "timeZone":"+01:00"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportTradesHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/exportTradesHistory",
-                  "sid":1,
-                  "d":{
-                     "timeZone":"+01:00"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportBalances",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/exportBalances",
-                  "sid":1,
+                  "q":"v1/exchange.marketdata/tickSizeList",
+                  "token":"abc",
+                  "sid":12,
                   "d":{
                      
                   }
@@ -1274,12 +975,12 @@
             }
          }
       ],
-      "order":247
+      "order":147
    },
    "[custom]-new-env-17":{
       "url":"wss://oms-trading-gateway-master.rnd.exberry-rnd.io",
       "provider":"websocket",
-      "order":149,
+      "order":185,
       "methods":[
          {
             "group":"Authentication API",
@@ -1353,583 +1054,5 @@
             }
          }
       ]
-   },
-   "[custom]-new-env-18":{
-      "url":"wss://nebula-sandbox-shared.staging.exberry-uat.io",
-      "provider":"websocket",
-      "order":262,
-      "methods":[
-         {
-            "group":"Authentication API",
-            "methodName":"createSession",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.oms/createSession",
-                  "sid":1,
-                  "d":{
-                     "token":"abc"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"placeOrder",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.oms/placeOrder",
-                  "sid":1,
-                  "d":{
-                     "orderType":"Limit",
-                     "side":"Buy",
-                     "instrument":"0Test",
-                     "quantity":2,
-                     "price":1200,
-                     "timeInForce":"GTC"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"orders",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/orders",
-                  "sid":1,
-                  "d":{
-                     "instrument":"INS1"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"cancel",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.oms/cancelOrder",
-                  "sid":1,
-                  "d":{
-                     "instrument":"INS1",
-                     "orderId":1
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"balance",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/balance",
-                  "sid":4,
-                  "d":{
-                     
-                  }
-               }
-            }
-         }
-      ]
-   },
-   "[custom]-new-env-21":{
-      "url":"wss://api-gateway-production.site.production.exberry.io",
-      "provider":"websocket",
-      "methods":[
-         {
-            "group":"Authentication API",
-            "methodName":"createSession - Broker",
-            "payload":{
-               "sample":{
-                  "q":"exchange.market/createSession",
-                  "sid":1,
-                  "d":{
-                     "apiKey":"",
-                     "timestamp":"",
-                     "signature":""
-                  }
-               },
-               "metadata":{
-                  "q":{
-                     "type":"input",
-                     "id":"q",
-                     "label":"q",
-                     "valueType":"text",
-                     "initialValue":"exchange.market/createSession",
-                     "hidden":true,
-                     "required":true
-                  },
-                  "sid":{
-                     "type":"input",
-                     "id":"sid",
-                     "label":"sid",
-                     "valueType":"number",
-                     "initialValue":1,
-                     "required":true
-                  },
-                  "apiKey":{
-                     "type":"input",
-                     "id":"apiKey",
-                     "label":"apiKey",
-                     "valueType":"text",
-                     "initialValue":"373fa4d0-8b0e-415a-953f-709a5b9c2cfb",
-                     "required":true
-                  },
-                  "secret":{
-                     "type":"input",
-                     "id":"secret",
-                     "label":"secret",
-                     "valueType":"text",
-                     "initialValue":"785da53ef65fda78e3703b4d3ddbf4a0c0539144abb9f06258d2f4cc598fbf44",
-                     "required":true
-                  },
-                  "timestamp":{
-                     "type":"input",
-                     "id":"timestamp",
-                     "label":"timestamp",
-                     "valueType":"number",
-                     "initialValue":"__TIMESTAMP__",
-                     "required":true
-                  },
-                  "signature":{
-                     "type":"input",
-                     "id":"signature",
-                     "label":"signature",
-                     "valueType":"text",
-                     "hidden":true,
-                     "initialValue":"__SIGNATURE__"
-                  }
-               },
-               "structure":{
-                  "q":"q",
-                  "sid":"sid",
-                  "d":[
-                     "apiKey",
-                     "timestamp",
-                     "signature"
-                  ]
-               }
-            }
-         },
-         {
-            "group":"Authentication API",
-            "methodName":"createSession-Trader",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.oms/createSession",
-                  "sid":1,
-                  "d":{
-                     "token":"abc"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Reporting API",
-            "methodName":"trades",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.reporting/mp/trades",
-                  "sid":10,
-                  "d":{
-                     "dateFrom":"2020-10-01T00:00:01",
-                     "dateTo":"2020-11-01T00:00:01"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Reporting API",
-            "methodName":"orders",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.reporting/mp/orders",
-                  "sid":10,
-                  "d":{
-                     "dateFrom":"2020-10-01T00:00:01",
-                     "dateTo":"2020-11-01T00:00:01",
-                     "status":"Active"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"partialOrderBook",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.marketdata/partialOrderBook",
-                  "sid":10,
-                  "d":{
-                     "symbol":"0Test",
-                     "levels":5,
-                     "interval":1000,
-                     "decimals":2
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"lightTickers",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.marketdata/lightTickers",
-                  "sid":10,
-                  "environments.exchangeNum":3,
-                  "d":{
-                     "symbols":[
-                        "0Test"
-                     ],
-                     "interval":1000
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"liveTrades",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.marketdata/liveTrades",
-                  "sid":13,
-                  "d":{
-                     "symbol":"0Test",
-                     "limit":500
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"transactions",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.wallet/transactions",
-                  "sid":1,
-                  "d":{
-                     "accountId":"Account1",
-                     "assetId":"Asset1"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"tradesHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/tradesHistory",
-                  "sid":1,
-                  "d":{
-                     "instrument":"INS1"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"balances",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/balances",
-                  "sid":1,
-                  "d":{
-                     
-                  }
-               }
-            }
-         },
-         {
-            "group":"Traders Reports API",
-            "methodName":"ordersHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/ordersHistory",
-                  "sid":1,
-                  "d":{
-                     
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportTransactions",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.wallet/exportTransactions",
-                  "sid":1,
-                  "d":{
-                     "timeZone":"+01:00"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportOrdersHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/exportOrdersHistory",
-                  "sid":1,
-                  "d":{
-                     "timeZone":"+01:00"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportTradesHistory",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/exportTradesHistory",
-                  "sid":1,
-                  "d":{
-                     "timeZone":"+01:00"
-                  }
-               }
-            }
-         },
-         {
-            "group":"CSV Export",
-            "methodName":"exportBalances",
-            "payload":{
-               "sample":{
-                  "q":"v1/broker.account/exportBalances",
-                  "sid":1,
-                  "d":{
-                     
-                  }
-               }
-            }
-         }
-      ],
-      "order":344
-   },
-   "[custom]-new-env-22":{
-      "url":"wss://exchange-gateway-exchange.production.exberry.io",
-      "provider":"websocket",
-      "methods":[
-         {
-            "group":"Authentication API",
-            "methodName":"createSession - Broker",
-            "payload":{
-               "sample":{
-                  "q":"exchange.market/createSession",
-                  "sid":1,
-                  "d":{
-                     "apiKey":"",
-                     "timestamp":"",
-                     "signature":""
-                  }
-               },
-               "metadata":{
-                  "q":{
-                     "type":"input",
-                     "id":"q",
-                     "label":"q",
-                     "valueType":"text",
-                     "initialValue":"exchange.market/createSession",
-                     "hidden":true,
-                     "required":true
-                  },
-                  "sid":{
-                     "type":"input",
-                     "id":"sid",
-                     "label":"sid",
-                     "valueType":"number",
-                     "initialValue":1,
-                     "required":true
-                  },
-                  "apiKey":{
-                     "type":"input",
-                     "id":"apiKey",
-                     "label":"apiKey",
-                     "valueType":"text",
-                     "initialValue":"b78eeca8-fed4-414e-9e99-48b899b7146e",
-                     "required":true
-                  },
-                  "secret":{
-                     "type":"input",
-                     "id":"secret",
-                     "label":"secret",
-                     "valueType":"text",
-                     "initialValue":"29f1455a70cd91d5e2f5b35bb6a383cb4bcdca5ceac3fc3f38e5235e80f38326",
-                     "required":true
-                  },
-                  "timestamp":{
-                     "type":"input",
-                     "id":"timestamp",
-                     "label":"timestamp",
-                     "valueType":"number",
-                     "initialValue":"__TIMESTAMP__",
-                     "required":true
-                  },
-                  "signature":{
-                     "type":"input",
-                     "id":"signature",
-                     "label":"signature",
-                     "valueType":"text",
-                     "hidden":true,
-                     "initialValue":"__SIGNATURE__"
-                  }
-               },
-               "structure":{
-                  "q":"q",
-                  "sid":"sid",
-                  "d":[
-                     "apiKey",
-                     "timestamp",
-                     "signature"
-                  ]
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"placeOrder",
-            "payload":{
-               "sample":{
-                  "d":{
-                     "orderType":"Limit",
-                     "side":"Buy",
-                     "quantity":1.3,
-                     "price":100.33,
-                     "instrument":"AMZ",
-                     "mpOrderId":1001,
-                     "timeInForce":"GTC",
-                     "userId":"UATUserTest10",
-                     "accountType":"House",
-                     "parties":[
-                        {
-                           "id":"veryCoolStringId",
-                           "source":"D",
-                           "role":12
-                        },
-                        {
-                           "id":"user123",
-                           "source":"D",
-                           "role":13
-                        }
-                     ]
-                  },
-                  "q":"v1/exchange.market/placeOrder",
-                  "sid":1
-               },
-               "structure":{
-                  "d":[
-                     "orderType",
-                     "instrument",
-                     "side",
-                     "quantity",
-                     "price",
-                     "timeInForce",
-                     "expiryDate",
-                     "mpOrderId",
-                     "userId"
-                  ],
-                  "q":"q",
-                  "sid":"sid"
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"cancelOrder",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/cancelOrder",
-                  "sid":1,
-                  "d":{
-                     "orderId":"",
-                     "instrument":"AMZ"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"massCancel",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/massCancel",
-                  "sid":1,
-                  "d":{
-                     "instrument":"AMZ"
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"orderBookDepth",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/orderBookDepth",
-                  "sid":10,
-                  "d":{
-                     "trackingNumber":0
-                  }
-               }
-            }
-         },
-         {
-            "group":"Market Data API",
-            "methodName":"orderBookState",
-            "payload":{
-               "sample":{
-                  "q":"v1/exchange.market/orderBookState",
-                  "sid":100,
-                  "d":{
-                     
-                  }
-               }
-            }
-         },
-         {
-            "group":"Trading API",
-            "methodName":"modifyOrder",
-            "payload":{
-               "sample":{
-                  "d":{
-                     "orderId":1,
-                     "instrument":"AMZ",
-                     "quantity":1
-                  },
-                  "q":"v1/exchange.market/modifyOrder",
-                  "sid":1
-               }
-            }
-         },
-         {
-            "group":"Private Data API",
-            "methodName":"executionReports",
-            "payload":{
-               "sample":{
-                  "d":{
-                     
-                  },
-                  "q":"v1/exchange.market/executionReports",
-                  "sid":103
-               }
-            }
-         },
-         {
-            "group":"Private Data API",
-            "methodName":"massOrderStatus",
-            "payload":{
-               "sample":{
-                  "d":{
-                     
-                  },
-                  "q":"v1/exchange.market/massOrderStatus",
-                  "sid":102
-               }
-            }
-         }
-      ],
-      "order":340
    }
 }
