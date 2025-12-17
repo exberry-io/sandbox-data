@@ -1,1 +1,294 @@
-test
+{
+    "api-gateway.uat.exberry-uat.io": {
+        "url": "wss://api-gateway-develop.rnd.exberry-rnd.io",
+        "provider": "websocket",
+        "methods": [
+            {
+                "group": "Authentication API",
+                "methodName": "createSession - Broker",
+                "payload": {
+                    "sample": {
+                        "q": "exchange.market/createSession",
+                        "sid": 1,
+                        "d": {
+                            "apiKey": "",
+                            "timestamp": "",
+                            "signature": ""
+                        }
+                    },
+                    "metadata": {
+                        "q": {
+                            "type": "input",
+                            "id": "q",
+                            "label": "q",
+                            "valueType": "text",
+                            "initialValue": "exchange.market/createSession",
+                            "hidden": true,
+                            "required": true
+                        },
+                        "sid": {
+                            "type": "input",
+                            "id": "sid",
+                            "label": "sid",
+                            "valueType": "number",
+                            "initialValue": 1,
+                            "required": true
+                        },
+                        "apiKey": {
+                            "type": "input",
+                            "id": "apiKey",
+                            "label": "apiKey",
+                            "valueType": "text",
+                            "initialValue": "",
+                            "required": true
+                        },
+                        "secret": {
+                            "type": "input",
+                            "id": "secret",
+                            "label": "secret",
+                            "valueType": "text",
+                            "initialValue": "",
+                            "required": true
+                        },
+                        "timestamp": {
+                            "type": "input",
+                            "id": "timestamp",
+                            "label": "timestamp",
+                            "valueType": "number",
+                            "initialValue": "__TIMESTAMP__",
+                            "required": true
+                        },
+                        "signature": {
+                            "type": "input",
+                            "id": "signature",
+                            "label": "signature",
+                            "valueType": "text",
+                            "hidden": true,
+                            "initialValue": "__SIGNATURE__"
+                        }
+                    },
+                    "structure": {
+                        "q": "q",
+                        "sid": "sid",
+                        "d": [
+                            "apiKey",
+                            "timestamp",
+                            "signature"
+                        ]
+                    }
+                }
+            },
+            {
+                "group": "Reporting API",
+                "methodName": "trades",
+                "payload": {
+                    "sample": {
+                        "q": "v1/exchange.reporting/mp/trades",
+                        "sid": 10,
+                        "d": {
+                            "dateFrom": "2020-10-01T00:00:01",
+                            "dateTo": "2020-11-01T00:00:01"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "Reporting API",
+                "methodName": "orders",
+                "payload": {
+                    "sample": {
+                        "q": "v1/exchange.reporting/mp/orders",
+                        "sid": 10,
+                        "d": {
+                            "dateFrom": "2020-10-01T00:00:01",
+                            "dateTo": "2020-11-01T00:00:01",
+                            "status": "Active"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "Authentication API",
+                "methodName": "createSession - Trader",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.oms/createSession",
+                        "sid": 1,
+                        "d": {
+                            "token": "abc"
+                        }
+                    },
+                    "structure": {
+                        "q": "q",
+                        "sid": "sid",
+                        "d": [
+                            "apiKey",
+                            "timestamp",
+                            "signature"
+                        ]
+                    }
+                }
+            },
+            {
+                "group": "Market Data API",
+                "methodName": "partialOrderBook",
+                "payload": {
+                    "sample": {
+                        "q": "v1/exchange.marketdata/partialOrderBook",
+                        "sid": 10,
+                        "environments.exchangeNum": 90,
+                        "d": {
+                            "symbol": "0Test",
+                            "levels": 5,
+                            "interval": 1000,
+                            "decimals": 2
+                        }
+                    }
+                }
+            },
+            {
+                "group": "Market Data API",
+                "methodName": "lightTickers",
+                "payload": {
+                    "sample": {
+                        "q": "v1/exchange.marketdata/lightTickers",
+                        "sid": 10,
+                        "environments.exchangeNum": 30,
+                        "d": {
+                            "symbols": [
+                                "0Test"
+                            ],
+                            "interval": 1000
+                        }
+                    }
+                }
+            },
+            {
+                "group": "Traders Report API",
+                "methodName": "transactions",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.wallet/transactions",
+                        "sid": 1,
+                        "d": {
+                            "accountId": "Account1",
+                            "assetId": "Asset1"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "Traders Report API",
+                "methodName": "tradesHistory",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.account/tradesHistory",
+                        "sid": 1,
+                        "d": {
+                            "instrument": "INS1"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "Traders Report API",
+                "methodName": "balances",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.account/balances",
+                        "sid": 1,
+                        "d": {}
+                    }
+                }
+            },
+            {
+                "group": "Traders Report API",
+                "methodName": "ordersHistory",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.account/ordersHistory",
+                        "sid": 1,
+                        "d": {}
+                    }
+                }
+            },
+            {
+                "group": "Market Data API",
+                "methodName": "liveTrades",
+                "payload": {
+                    "sample": {
+                        "q": "v1/exchange.marketdata/liveTrades",
+                        "sid": 13,
+                        "d": {
+                            "symbol": "0Test",
+                            "limit": 500
+                        }
+                    }
+                }
+            },
+            {
+                "group": "CSV Export",
+                "methodName": "exportTransactions",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.wallet/exportTransactions",
+                        "sid": 1,
+                        "d": {
+                            "timeZone": "+01:00"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "CSV Export",
+                "methodName": "exportOrdersHistory",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.account/exportOrdersHistory",
+                        "sid": 1,
+                        "d": {
+                            "timeZone": "+01:00"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "CSV Export",
+                "methodName": "exportTradesHistory",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.account/exportTradesHistory",
+                        "sid": 1,
+                        "d": {
+                            "timeZone": "+01:00"
+                        }
+                    }
+                }
+            },
+            {
+                "group": "CSV Export",
+                "methodName": "exportBalances",
+                "payload": {
+                    "sample": {
+                        "q": "v1/broker.account/exportBalances",
+                        "sid": 1,
+                        "d": {}
+                    }
+                }
+            },
+            {
+                "group": "Market Data API",
+                "methodName": "getSettlementPrices",
+                "payload": {
+                    "sample": {
+                        "q": "v1/exchange.marketdata/getSettlementPrices",
+                        "sid": 1,
+                        "token": "",
+                        "d": {}
+                    }
+                }
+            }
+        ],
+        "order": 382
+    }
+}
