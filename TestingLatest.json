@@ -4,7 +4,7 @@
         "provider": "websocket",
         "methods": [
             {
-                "group": "Authentication API's",
+                "group": "Authentication API",
                 "methodName": "createSession - Broker",
                 "payload": {
                     "sample": {
