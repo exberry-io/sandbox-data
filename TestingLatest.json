@@ -1,6 +1,6 @@
 {
     "api-gateway.uat.exberry-uat.io": {
-        "url": "wss://api-gateway-develop.rnd.exberry-rnd.io",
+        "url": "wss://api-gateway.uat.exberry-uat.io",
         "provider": "websocket",
         "methods": [
             {
